@@ -3,7 +3,7 @@
 }
 
 h1 {
-    color: aliceblue;
+    color: whitesmoke;
 }
 
 .center {
@@ -20,4 +20,10 @@ h1 {
 
 button {
     padding: 10px;
+}
+
+.deals {
+    color: whitesmoke;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: x-large;
 }

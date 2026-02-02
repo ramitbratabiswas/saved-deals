@@ -5,7 +5,7 @@ router = APIRouter(prefix="/deals")
 
 @router.get("/")
 def list_deals():
-    return []
+    return ["bro", "haha", "u really thought"]
 
 @router.post("/")
 def create_deal(deal: DealCreate):
