@@ -10,7 +10,38 @@ interface Deal {
     url: string,
 }
 
-function App() {
+interface DealDisplayProps {
+    deals: Deal[]
+}
+
+const deleteDeal = async (id: number) => {
+    await fetch(`${DEALS_LINK}/${id}`, {
+        method: "DELETE"
+    })
+}
+
+const DealDisplay = (props: DealDisplayProps) => {
+    const { deals } = props;
+    return (
+        <div className='deal-display-container'>
+            <h1 className='deal-display-header'>deals for you...</h1>
+            <div className='deals-list'>
+                {deals.map((deal: Deal) => (
+                    <>
+                        <div className='deal-list-item'>
+                            <div className='deal-name'>name: {deal.title}</div>
+                            <div className='deal-price'>price: {deal.price}</div>
+                            <div className='deal-url'>url: {deal.url}</div>
+                            <button onClick={(e) => { e.preventDefault(); deleteDeal(deal.id); }}>delete</button>
+                        </div>
+                    </>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+const App = () => {
     const [clickCount, setClickCount] = useState(0);
     const [deals, setDeals] = useState<Deal[]>([]);
     const [newDealName, setNewDealName] = useState<string>("");
@@ -66,21 +97,21 @@ function App() {
                 <form inputMode='text' className='add-form' onSubmit={handleAddSubmit}>
                     <div>
                         <label>where to?</label>
-                        <input type='text' onChange={(v) => setNewDealName(v.target.value)} />
+                        <input type='text' value={newDealName} onChange={(v) => setNewDealName(v.target.value)} />
                     </div>
                     <div>
                         <label>costs($)? </label>
-                        <input type='text'onChange={(v) => setNewDealPrice(Number(v.target.value))}  />
+                        <input type='text' value={newDealPrice} onChange={(v) => setNewDealPrice(Number(v.target.value))} />
                     </div>
                     <div>
                         <label>link u found it on</label>
-                        <input type='text' onChange={(v) => setNewDealUrl(v.target.value)} />
+                        <input type='text' value={newDealUrl} onChange={(v) => setNewDealUrl(v.target.value)} />
                     </div>
                     <input type='submit' />
                 </form>
             </div>
             <div className='deals'>
-                {deals && deals.map((deal, i) => <div key={i}>{`id: ${deal.id}, name: ${deal.title}, price: ${deal.price}, site: ${deal.url}`}</div>)}
+                {deals && <DealDisplay deals={deals} />}
             </div>
         </>
     )

@@ -20,6 +20,7 @@ h1, h2 {
 
 button {
     padding: 10px;
+    color: black;
 }
 
 .deals {
@@ -44,4 +45,36 @@ button {
 .add-form > input {
     padding: 10px;
     width: 15%;
+}
+
+.deal-display-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(90, 90, 214);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px black;
+}
+
+.deal-display-header {
+    font-size: 24px;
+}
+
+.deals-list {
+    display: flex;
+    gap: 10px;
+}
+
+.deal-list-item {
+    font-size: medium;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+    width: 22%;
+    padding: 10px;
+    background-color: rgb(64, 43, 226);
+    box-shadow: 1px 1px 4px black;
+    border-radius: 4px;
 }
