@@ -13,5 +13,5 @@ class Deal(Base):
     url: Mapped[str] = mapped_column(String, nullable=False)
 
     __table_args__ = (
-        UniqueConstraint("url", name="uq_deals_url")
+        UniqueConstraint("url", name="uq_deals_url"),
     )
