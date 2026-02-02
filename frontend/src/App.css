@@ -2,7 +2,7 @@
     font-family: monospace;
 }
 
-h1 {
+h1, h2 {
     color: whitesmoke;
 }
 
@@ -26,4 +26,22 @@ button {
     color: whitesmoke;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: x-large;
+}
+
+.add-form {
+    display: flex;
+    gap: 20px;
+}
+
+.add-form > div {
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 25%;
+}
+
+.add-form > input {
+    padding: 10px;
+    width: 15%;
 }
